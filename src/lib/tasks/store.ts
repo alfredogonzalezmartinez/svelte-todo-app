@@ -1,8 +1,20 @@
+import { browser } from '$app/environment'
 import type { NewTask, Task, TaskId } from '$lib/tasks/types'
 import { writable } from 'svelte/store'
 
+const getLocalStorageTasks = (): Task[] => {
+	const tasks = localStorage.getItem('tasks')
+	return tasks ? JSON.parse(tasks) : []
+}
+
+const initialTasks = browser ? getLocalStorageTasks() : []
+
 function createTasks(tasks: Task[] = []) {
 	const { subscribe, update } = writable(tasks)
+
+	subscribe((tasks) => {
+		if (browser) localStorage.setItem('tasks', JSON.stringify(tasks))
+	})
 
 	const add = ({ description }: NewTask) => {
 		const newTask = {
@@ -35,4 +47,4 @@ function createTasks(tasks: Task[] = []) {
 	}
 }
 
-export const tasks = createTasks()
+export const tasks = createTasks(initialTasks)
