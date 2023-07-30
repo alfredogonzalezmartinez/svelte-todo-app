@@ -31,11 +31,17 @@ function createTasks() {
 
 	const initialTasks = browser ? getLocalStorageTasks() : []
 
-	const { subscribe, update } = writable(initialTasks)
+	const { subscribe, update, set } = writable(initialTasks)
 
-	subscribe((tasks) => {
-		if (browser) localStorage.setItem(localStorageKey, JSON.stringify(tasks))
-	})
+	if (browser) {
+		subscribe((tasks) => {
+			localStorage.setItem(localStorageKey, JSON.stringify(tasks))
+		})
+
+		window.addEventListener('storage', (event) => {
+			if (event.key === localStorageKey) set(getLocalStorageTasks())
+		})
+	}
 
 	const add = ({ description }: NewTask) => {
 		const newTask = {
