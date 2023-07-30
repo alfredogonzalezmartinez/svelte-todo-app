@@ -7,3 +7,5 @@ export type Task = {
 }
 
 export type NewTask = Pick<Task, 'description'>
+
+export type TaskFilter = ((task: Task) => boolean) | null

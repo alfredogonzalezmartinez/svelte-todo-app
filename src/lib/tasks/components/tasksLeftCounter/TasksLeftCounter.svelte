@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { tasks } from '$lib/tasks/store'
-
-	let count = 0
-	$: count = $tasks.filter((task) => !task.completed).length
+	export let count = 0
 </script>
 
 {#if count > 0}
