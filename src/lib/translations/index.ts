@@ -50,6 +50,16 @@ const config: Config = {
 			key: 'tasksLeftCounter',
 			loader: async () => (await import('./tasksLeftCounter/es/tasksLeftCounter.json')).default,
 		},
+		{
+			locale: 'en',
+			key: 'task',
+			loader: async () => (await import('./task/en/task.json')).default,
+		},
+		{
+			locale: 'es',
+			key: 'task',
+			loader: async () => (await import('./task/es/task.json')).default,
+		},
 	],
 }
 

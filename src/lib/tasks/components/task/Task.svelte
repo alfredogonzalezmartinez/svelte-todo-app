@@ -2,6 +2,8 @@
 	import TrashIcon from '$lib/components/icons/TrashIcon.svelte'
 	import type { TaskEvents } from '$lib/tasks/components/task/types'
 	import type { Task } from '$lib/tasks/types'
+	import { t } from '$lib/translations'
+	import * as taskText from '$lib/translations/task/constants/task'
 	import { createEventDispatcher } from 'svelte'
 
 	export let task: Task
@@ -9,7 +11,7 @@
 	const dispatch = createEventDispatcher<TaskEvents>()
 
 	const toggleCompleted = () => dispatch('toggleCompleted', { taskId: task.id })
-	const remove = () => dispatch('remove', { taskId: task.id })
+	const handleRemoveButtonClick = () => dispatch('remove', { taskId: task.id })
 </script>
 
 <article
@@ -27,7 +29,11 @@
 			{task.description}
 		</span>
 	</div>
-	<button class="cursor-auto p-2 text-red-600 hover:text-red-400" on:click={remove}>
+	<button
+		class="cursor-auto p-2 text-red-600 hover:text-red-400"
+		aria-label={$t(taskText.remove)}
+		on:click={handleRemoveButtonClick}
+	>
 		<TrashIcon />
 	</button>
 </article>
