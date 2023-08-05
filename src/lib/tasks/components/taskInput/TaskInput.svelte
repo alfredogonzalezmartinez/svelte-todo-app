@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { TaskInputEvents } from '$lib/tasks/components/taskInput/types'
 	import type { NewTask } from '$lib/tasks/types'
+	import { t } from '$lib/translations'
+	import * as taskInput from '$lib/translations/taskInput/constants/taskInput'
 	import { createEventDispatcher } from 'svelte'
 
 	const dispatch = createEventDispatcher<TaskInputEvents>()
@@ -28,6 +30,6 @@
 		name="description"
 		class="block w-full border border-gray-300 bg-gray-50 p-2 px-4 text-gray-900 focus:border-blue-500 focus:ring-blue-500"
 		type="text"
-		placeholder="Do something"
+		placeholder={$t(taskInput.placeholder)}
 	/>
 </form>

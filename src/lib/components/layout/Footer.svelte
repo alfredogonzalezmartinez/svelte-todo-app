@@ -1,14 +1,11 @@
+<script lang="ts">
+	import { t } from '$lib/translations'
+	import * as common from '$lib/translations/common/constants/common'
+</script>
+
 <footer class="flex flex-col justify-center gap-1 py-2 sm:flex-row">
 	<span class="text-center sm:after:content-['_-']">
-		Developed by
-		<a
-			class="text-orange-600 underline"
-			href="https://github.com/alfredogonzalezmartinez"
-			target="_blank"
-			rel="noreferrer noopener"
-		>
-			Alfredo
-		</a>
+		{$t(common.developedBy, { name: 'Alfredo' })}
 	</span>
 	<a
 		class="text-center text-orange-600 underline"
@@ -16,6 +13,6 @@
 		target="_blank"
 		rel="noreferrer noopener"
 	>
-		Source code
+		{$t(common.sourceCode)}
 	</a>
 </footer>

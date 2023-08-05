@@ -1,0 +1,7 @@
+{
+	"appName": "ToDo App",
+	"appDescription": "Gestiona tu tareas gracias a ToDo App",
+	"developedBy": "Desarrollado por {{name}}",
+	"sourceCode": "Código",
+	"language": "Idioma"
+}

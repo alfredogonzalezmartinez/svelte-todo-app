@@ -1,0 +1,5 @@
+export const appName = 'common.appName'
+export const appDescription = 'common.appDescription'
+export const developedBy = 'common.developedBy'
+export const sourceCode = 'common.sourceCode'
+export const language = 'common.language'

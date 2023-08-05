@@ -12,6 +12,9 @@
 		"lint": "prettier --plugin-search-dir . --write . && eslint --fix .",
 		"prepare": "husky install"
 	},
+	"dependencies": {
+		"sveltekit-i18n": "2.4.2"
+	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "2.1.0",
 		"@sveltejs/kit": "1.22.3",
